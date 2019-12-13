@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14492.1" systemVersion="18G84" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="AuthorDB" representedClassName="AuthorDB" syncable="YES" codeGenerationType="class">
+        <attribute name="idAuthor" attributeType="Integer 64" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="nameAuthor" attributeType="String" syncable="YES"/>
+        <relationship name="noticiaAuthor" toMany="YES" deletionRule="Nullify" destinationEntity="NoticiaDB" inverseName="authorNoticia" inverseEntity="NoticiaDB" syncable="YES"/>
+    </entity>
+    <entity name="CategoryDB" representedClassName="CategoryDB" syncable="YES" codeGenerationType="class">
+        <attribute name="idCategory" attributeType="Integer 64" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="nameCategory" attributeType="String" syncable="YES"/>
+        <relationship name="noticiaCategory" toMany="YES" deletionRule="Nullify" destinationEntity="NoticiaDB" inverseName="categoryNoticia" inverseEntity="NoticiaDB" syncable="YES"/>
+    </entity>
+    <entity name="NoticiaDB" representedClassName="NoticiaDB" syncable="YES" codeGenerationType="class">
+        <attribute name="contentNoticia" attributeType="String" syncable="YES"/>
+        <attribute name="dateNoticia" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="excerptNoticia" attributeType="String" syncable="YES"/>
+        <attribute name="fav" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="idNoticia" attributeType="Integer 64" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="imagenDataNoticia" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="imagenNoticia" attributeType="URI" syncable="YES"/>
+        <attribute name="linkNoticia" attributeType="URI" syncable="YES"/>
+        <attribute name="titleNoticia" attributeType="String" syncable="YES"/>
+        <relationship name="authorNoticia" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AuthorDB" inverseName="noticiaAuthor" inverseEntity="AuthorDB" syncable="YES"/>
+        <relationship name="categoryNoticia" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CategoryDB" inverseName="noticiaCategory" inverseEntity="CategoryDB" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="AuthorDB" positionX="-45" positionY="54" width="128" height="90"/>
+        <element name="CategoryDB" positionX="-27" positionY="81" width="128" height="90"/>
+        <element name="NoticiaDB" positionX="-63" positionY="-18" width="128" height="210"/>
+    </elements>
+</model>
